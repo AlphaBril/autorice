@@ -1,6 +1,3 @@
-cp -a debian-bspwm-dotfiles/home/addy/. ~
-chmod +x ~/.config/bspwm/bspwmrc
-chmod +x ~/.scripts/*
 sudo apt-get update
 sudo apt-get install build-essential \
 zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev \
@@ -25,7 +22,6 @@ python3-pip gettext python-is-python3 \
 dunst \
 alsa-utils \
 runit
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 curl -o code.deb -L http://go.microsoft.com/fwlink/?LinkID=760868
 sudo apt-get install ./code.deb
 rm -rf code.deb
@@ -37,3 +33,7 @@ cd bashtop/DEB
 sudo ./build
 cd ~
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+cp -a debian-bspwm-dotfiles/home/addy/. ~
+chmod +x ~/.config/bspwm/bspwmrc
+chmod +x ~/.scripts/*
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
