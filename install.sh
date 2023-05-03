@@ -34,4 +34,10 @@ sudo ./build
 cd ~
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 cp -a debian-bspwm-dotfiles/home/addy/. ~
+wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.31.155-amd64.deb
+sudo apt-get install ./slack-desktop-4.31.155-amd64.deb
+rm ./slack-desktop-4.31.155-amd64.deb
+wget -O discord.deb https://discordapp.com/api/download/canary?platform=linux
+sudo apt-get install ./discord.deb
+rm ./discord.deb
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
