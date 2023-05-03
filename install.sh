@@ -34,6 +34,4 @@ sudo ./build
 cd ~
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 cp -a debian-bspwm-dotfiles/home/addy/. ~
-chmod +x ~/.config/bspwm/bspwmrc
-chmod +x ~/.scripts/*
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
