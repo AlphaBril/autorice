@@ -33,6 +33,8 @@ cd bashtop/DEB
 sudo ./build
 cd ~
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+source ~/.nvm/nvm.sh
+nvm install node
 cp -a debian-bspwm-dotfiles/home/addy/. ~
 wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.31.155-amd64.deb
 sudo apt-get install ./slack-desktop-4.31.155-amd64.deb
