@@ -24,7 +24,7 @@ file-roller \
 python3-pip gettext python-is-python3 \
 dunst \
 alsa-utils \
-runit \
+runit
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 curl -o code.deb -L http://go.microsoft.com/fwlink/?LinkID=760868
 sudo apt-get install ./code.deb
