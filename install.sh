@@ -42,6 +42,6 @@ rm ./discord.deb
 sudo apt-get install libsdl2-2.0-0 libsdl2-dev cmake -y
 sudo tar -o -xvf debian-bspwm-dotfiles/deb/wallpaper.tar.gz --directory /
 sudo apt-get install ./debian-bspwm-dotfiles/deb/greeter.deb -y
-sudo echo -e "[Seat*]\ngreeter-session=nody-greeter" >> /etc/lightdm/lightdm.conf
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo sh -c "echo '[Seat*]\ngreeter-session=nody-greeter' >> /etc/lightdm/lightdm.conf"
 cp -a debian-bspwm-dotfiles/home/addy/. ~
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
