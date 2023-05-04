@@ -11,6 +11,7 @@ TERM=xterm
 
 # Complete path of oh-my-zsh script
 source $ZSH/oh-my-zsh.sh
+source ~/.nvm/nvm.sh
 
 # Disable auto update
 DISABLE_AUTO_UPDATE="true"
