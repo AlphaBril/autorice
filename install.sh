@@ -39,7 +39,7 @@ rm ./slack-desktop-4.31.155-amd64.deb
 wget -O discord.deb https://discordapp.com/api/download/canary?platform=linux
 sudo apt-get install ./discord.deb -y
 rm ./discord.deb
-sudo apt-get install libsdl2-2.0-0 -y
+sudo apt-get install libsdl2-2.0-0 libsdl2-dev cmake -y
 sudo tar -o -xvf debian-bspwm-dotfiles/deb/wallpaper.tar.gz --directory /
 sudo apt-get install ./debian-bspwm-dotfiles/deb/greeter.deb -y
 sudo echo -e "[Seat*]\ngreeter-session=nody-greeter" >> /etc/lightdm/lightdm.conf
