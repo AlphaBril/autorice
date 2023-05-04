@@ -85,16 +85,12 @@ bspc rule -a stalonetray state=floating manage=off
 xsetroot -cursor_name left_ptr
 xbacklight -set 10
 xset fp+ ~/.fonts/misc
-killall -9 sxhkd xsettingsd dunst bar.sh
+killall -9 sxhkd xsettingsd dunst custombar lwp
 /home/fldoucet/.config/bspwm/bar.sh &
 sxhkd &
-bar.sh &
+custombar &
+lwp &
 xsettingsd &
-WALLPAPER=$(shuf -n1 -e ~/.wallpaper/*)
-SHORTWALLPAPER=$(echo $WALLPAPER | sed "s@.*/@@" | sed "s/\..*$//")
-ls ~/.wallpaper | sort -R | tail -$N | while read file; do # useless animation
-	hsetroot -fill ~/.wallpaper/$file -tint '#3c6f86'; sleep 0.1; done
-hsetroot -fill $WALLPAPER -tint '#9ccfe6'
 dunst \
 -lb "$BACKGROUND" -lf "$FOREGROUND" -lfr "$GREEN" \
 -nb "$BACKGROUND" -nf "$FOREGROUND" -nfr "$BLUE" \

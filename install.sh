@@ -5,7 +5,6 @@ xfonts-base xserver-xorg-input-all xinit xserver-xorg-video-all \
 lightdm \
 bspwm \
 curl wget vim zsh \
-hsetroot \
 rofi \
 xsettingsd \
 thunar \
@@ -32,6 +31,7 @@ git clone https://github.com/aristocratos/bashtop.git
 cd bashtop/DEB
 sudo ./build
 cd ~
+rm -rf bashtop
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.31.155-amd64.deb
 sudo apt-get install ./slack-desktop-4.31.155-amd64.deb -y
@@ -39,6 +39,8 @@ rm ./slack-desktop-4.31.155-amd64.deb
 wget -O discord.deb https://discordapp.com/api/download/canary?platform=linux
 sudo apt-get install ./discord.deb -y
 rm ./discord.deb
+sudo apt-get install libsdl2-2.0-0 -y
+sudo tar -o -xvf debian-bspwm-dotfiles/deb/wallpaper.tar.gz --directory /
 sudo apt-get install ./debian-bspwm-dotfiles/deb/greeter.deb -y
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cp -a debian-bspwm-dotfiles/home/addy/. ~
