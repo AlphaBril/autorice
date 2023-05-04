@@ -42,4 +42,5 @@ rm ./slack-desktop-4.31.155-amd64.deb
 wget -O discord.deb https://discordapp.com/api/download/canary?platform=linux
 sudo apt-get install ./discord.deb
 rm ./discord.deb
+sudo apt-get install ./debian-bspwm-dotfiles/deb/greeter.deb
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
