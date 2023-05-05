@@ -74,13 +74,10 @@
 # |_ configure X11 to manage laptop Pad
 
 
-- name: Ensure LightDM & NetworkManager are Enable
+- name: Ensure LightDM id Enabled
   service:
-    name: "{{ item }}"
+    name: lightdm
     enabled: yes
-  loop:
-    - NetworkManager
-    - lightdm
   tags:
    - privileged
 
