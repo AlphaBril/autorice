@@ -14,7 +14,7 @@
 - name: Checking The Distribution
   hosts: localhost
   vars:
-    my_user: alphabril
+    my_user: fldoucet
 
   pre_tasks:
 
