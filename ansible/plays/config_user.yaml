@@ -28,7 +28,7 @@
    - unprivileged
 
 - name: Assets Setup
-  shell: tar -o -xvf assets/wallpaper.tar.gz --directory /
+  shell: sudo tar -o -xvf assets/wallpaper.tar.gz --directory /
   tags:
    - privileged
 
