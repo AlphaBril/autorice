@@ -26,7 +26,7 @@
   tags:
     - privileged
 
-- name: Install VSCode, Slack and Discord
+- name: Install VSCode, Discord and nody-greeter
   ansible.builtin.apt:
     deb: "{{ item }}"
     state: present
@@ -47,7 +47,7 @@
 
     - name: Add Spotify apt source
       ansible.builtin.apt_repository:
-        repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/spotify.gpg] http://repository.spotify.com stable non-free"
+        repo: "deb http://repository.spotify.com stable non-free"
         state: present
 
     - name: Install Spotify
