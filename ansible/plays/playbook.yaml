@@ -3,11 +3,16 @@
   hosts: localhost
 
   tasks:
-  - name: update system
-    shell: sudo apt-get update
+  - name: Update system
+    ansible.builtin.apt:
+      update_cache: yes
 
-  - name: install building dependencies
-    shell: sudo apt-get install build-essential psmisc
+  - name: Install building dependencies
+    ansible.builtin.apt:
+      name:
+        - "build-essential"
+        - "psmisc"
+      state: latest
 
 - name: Install Rice Dependencies
   hosts: localhost

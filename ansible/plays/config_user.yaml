@@ -1,0 +1,38 @@
+---
+####################################################
+#--------------------------------------------------#
+# Configuration on unpriviliged user
+# |_ Ensure directories are present in /home/user 
+# |_ Create config X11 files
+# |_ Copying Dotfiles
+# |_ Correct permissions on Dotfiles
+# |_ Setup Assets (font, gtk ...etc)
+# |_ Setup Dmenu
+# |_ Ensure Plugins config of Nvim
+- name: Creating basic directory
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop: "{{ v_files }}"
+  tags:
+   - unprivileged
+
+- name: Dotfiles setup
+  block:
+    - name: Copy for Dotfiles in Config Directory
+      copy:
+        src: "{{ playbook_dir }}/{{ item.in }}"
+        dest: "{{ item.out }}"
+      loop: "{{ v_dotfiles['config'] }}"
+  tags:
+   - unprivileged
+
+- name: Assets Setup
+  block:
+    - name: Assets Decompression
+      unarchive:
+        src: "assets/wallpaper.tar.gz"
+        dest: "/"
+  tags:
+   - privileged
+

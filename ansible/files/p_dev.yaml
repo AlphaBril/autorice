@@ -1,0 +1,11 @@
+p_dev:
+  - zlib1g-dev
+  - libncurses5-dev
+  - libgdbm-dev
+  - libnss3-dev
+  - libssl-dev
+  - libreadline-dev
+  - libffi-dev
+  - libsqlite3-dev
+  - libbz2-dev
+  - libsdl2-2.0-0

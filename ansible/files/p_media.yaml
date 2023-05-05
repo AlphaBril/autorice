@@ -1,0 +1,6 @@
+p_media:
+  - scrot
+  - ncmpcpp
+  - vlc
+  - ffmpeg
+  - alsa-utils

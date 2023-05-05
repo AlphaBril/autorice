@@ -1,0 +1,17 @@
+p_basic:
+  - curl
+  - wget
+  - vim
+  - zsh
+  - rxvt-unicode
+  - python3-pip
+  - gettext
+  - python-is-python3
+  - psmisc
+  - build-essential
+  - chromium
+  - thunar
+  - viewnior
+  - evince
+  - file-roller
+  - runit

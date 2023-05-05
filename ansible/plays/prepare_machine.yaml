@@ -1,0 +1,134 @@
+---
+####################################################
+#--------------------------------------------------#
+# Installation & configuration
+# |_ Repositories
+# |_ Basics packages
+# |_ Media Lib & App
+# |_ Advanced packages
+
+- name: Update the System
+  ansible.builtin.apt:
+    update_cache: yes
+  tags:
+    - privileged
+
+- name: Install RPM
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - "{{ p_xminimal }}"
+    - "{{ p_basic }}"
+    - "{{ p_dev }}"
+    - "{{ p_media }}"
+    - "{{ p_wm }}"
+  tags:
+    - privileged
+
+- name: Install VSCode, Slack and Discord
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - http://go.microsoft.com/fwlink/?LinkID=760868
+    - https://downloads.slack-edge.com/linux_releases/slack-desktop-4.31.155-amd64.deb
+    - https://discordapp.com/api/download/canary?platform=linux
+    - "assets/greeter.deb"
+  tags:
+    - privileged
+
+- name: Install Spotify
+  block:
+    - name: Add Spotify apt key
+      ansible.builtin.get_url:
+        url: https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg
+        dest: /etc/apt/trusted.gpg.d/spotify.gpg
+
+    - name: Add Spotify apt source
+      ansible.builtin.apt_repository:
+        repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/spotify.gpg] http://repository.spotify.com stable non-free"
+        state: present
+
+    - name: Install Spotify
+      ansible.builtin.apt:
+        name: "spotify-client"
+        state: present
+        update_cache: yes
+  tags:
+    - privileged
+
+- name: Install nvm
+  block:
+    - name: Fetch NVM
+      ansible.builtin.uri:
+        url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
+        return_content: yes
+      register: nvm_installer
+    - name: Exec NVM
+      ansible.builtin.shell:
+        cmd: sh -s -- -y
+        stdin: "{{ nvm_installer.content }}"
+
+- name: Install oh-my-zsh
+  block:
+    - name: Fetch oh-my-zsh
+      ansible.builtin.uri:
+        url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+        return_content: yes
+      register: ohmyzsh_installer
+    - name: Exec oh-my-zsh
+      ansible.builtin.shell:
+        cmd: sh -s -- -y
+        stdin: "{{ ohmyzsh_installer.content }}"
+
+
+####################################################
+#--------------------------------------------------#
+# Preparing & configuring
+# |_ Ensure LightDM and NetworkManager are enabled
+# |_ Desactivate Suspend & Sleep in Systemd
+# |_ Setup the GUI
+#
+# System config relative to Hardware
+# |_ configure X11 to manage laptop Pad
+
+
+- name: Ensure LightDM & NetworkManager are Enable
+  service:
+    name: "{{ item }}"
+    enabled: yes
+  loop:
+    - NetworkManager
+    - lightdm
+  tags:
+   - privileged
+
+
+- name: Masking Suspend & Sleep function as it tend to cause issue
+  service:
+    name: "{{ item }}"
+    state: stopped
+    masked: yes
+  loop:
+    - suspend.target
+    - sleep.target
+  tags:
+   - privileged
+
+# For Laptop
+- name: Copying configuration for TouchPad
+  copy:
+    content: |
+      Section "InputClass"
+        Identifier "touchpad overrides"
+        Driver "libinput"
+        MatchIsTouchpad "on"
+        Option "Tapping" "on"
+        Option "TappingButtonMap" "lmr"
+      EndSection
+    dest: /etc/X11/xorg.conf.d/99-synaptics-overides.conf
+  tags:
+   - privileged
+
+

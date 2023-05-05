@@ -1,0 +1,6 @@
+p_wm:
+  - lightdm
+  - bspwm
+  - polybar
+  - rofi
+  - dunst

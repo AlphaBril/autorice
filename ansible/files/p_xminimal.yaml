@@ -1,0 +1,6 @@
+p_xminimal:
+  - xfonts-base
+  - xserver-xorg-input-all
+  - xinit
+  - xserver-xorg-video-all
+  - xsettingsd
