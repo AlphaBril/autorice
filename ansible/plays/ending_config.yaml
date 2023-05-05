@@ -9,15 +9,15 @@
 # |_ reboot if tagged
 
 
-- name: Configure LightDM
-  block:
-    - name: Editing LightDM Conf File
-      lineinfile:
-        path: /etc/lightdm/lightdm.conf
-        regexp: "\[Seat\*\]"
-        line: "\[Seat\*\]\ngreeter-session=nody-greeter"
-  tags:
-   - privileged
+# - name: Configure LightDM a refaire avec la bonne regex
+#   block:
+#     - name: Editing LightDM Conf File
+#       lineinfile:
+#         path: /etc/lightdm/lightdm.conf
+#         regexp: "\[Seat\*\]"
+#         line: "\[Seat\*\]\ngreeter-session=nody-greeter"
+#   tags:
+#    - privileged
 
 - name: Changing default shell
   user:
