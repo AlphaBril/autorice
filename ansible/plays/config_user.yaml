@@ -28,7 +28,7 @@
    - unprivileged
 
 - name: Assets Setup
-  shell: tar -o -xvf debian-bspwm-dotfiles/deb/wallpaper.tar.gz --directory /
+  shell: tar -o -xvf assets/wallpaper.tar.gz --directory /
   tags:
    - privileged
 
