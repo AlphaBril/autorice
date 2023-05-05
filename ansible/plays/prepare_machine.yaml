@@ -57,28 +57,10 @@
     - privileged
 
 - name: Install nvm
-  block:
-    - name: Fetch NVM
-      ansible.builtin.uri:
-        url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
-        return_content: yes
-      register: nvm_installer
-    - name: Exec NVM
-      ansible.builtin.shell:
-        cmd: sh -s -- -y
-        stdin: "{{ nvm_installer.content }}"
+  shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
 - name: Install oh-my-zsh
-  block:
-    - name: Fetch oh-my-zsh
-      ansible.builtin.uri:
-        url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-        return_content: yes
-      register: ohmyzsh_installer
-    - name: Exec oh-my-zsh
-      ansible.builtin.shell:
-        cmd: sh -s -- -y
-        stdin: "{{ ohmyzsh_installer.content }}"
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 
 ####################################################
