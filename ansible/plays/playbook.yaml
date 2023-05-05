@@ -1,0 +1,20 @@
+---
+- name: Update system before install and install building dependecies
+  hosts: localhost
+
+  tasks:
+  - name: update system
+    shell: sudo apt-get update
+
+  - name: install building dependencies
+    shell: sudo apt-get install build-essential psmisc
+
+- name: Install Rice Dependencies
+  hosts: localhost
+
+  tasks:
+  - name: Install minimal xserver
+    shell: sudo apt-get install xfonts-base xserver-xorg-input-all xinit xserver-xorg-video-all
+
+  - name: Install login page
+    shell: sudo apt-get install lightdm
