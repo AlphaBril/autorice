@@ -28,11 +28,7 @@
    - unprivileged
 
 - name: Assets Setup
-  block:
-    - name: Assets Decompression
-      unarchive:
-        src: "assets/wallpaper.tar.gz"
-        dest: "/"
+  shell: tar -o -xvf debian-bspwm-dotfiles/deb/wallpaper.tar.gz --directory /
   tags:
    - privileged
 
