@@ -53,7 +53,7 @@
     horizon18 = #FFE4E1
 
 [bar/mybar]
-    monitor = Screen 0
+    monitor = ${env:MONITOR:}
     width = 90%
     offset-x = 5%
     height = 18pt

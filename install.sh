@@ -4,6 +4,7 @@ zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev li
 xfonts-base xserver-xorg-input-all xinit xserver-xorg-video-all \
 lightdm \
 bspwm \
+polybar \
 curl wget vim zsh \
 rofi \
 xsettingsd \
