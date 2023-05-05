@@ -27,22 +27,14 @@
     - privileged
 
 - name: Install VSCode, Slack and Discord
-  block:
-    - name: Install VSCode
-      ansible.builtin.apt:
-        deb: http://go.microsoft.com/fwlink/?LinkID=760868
-
-    - name: Install Slack
-      ansible.builtin.apt:
-        deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.31.155-amd64.deb
-
-    - name: Install Discord
-      ansible.builtin.apt:
-        deb: https://discordapp.com/api/download/canary?platform=linux
-
-    - name: Install Nody-Greeter
-      ansible.builtin.apt:
-        deb: "assets/greeter.deb"
+  ansible.builtin.apt:
+    deb: "{{ item }}"
+    state: present
+  loop:
+    - http://go.microsoft.com/fwlink/?LinkID=760868
+    # - https://downloads.slack-edge.com/linux_releases/slack-desktop-4.31.155-amd64.deb
+    - https://discordapp.com/api/download/canary?platform=linux
+    - "assets/greeter.deb"
   tags:
     - privileged
 
