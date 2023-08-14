@@ -77,6 +77,8 @@
       swww
       pavucontrol
       pamixer
+      swaylock
+      wlogout
     ];
   };
 
