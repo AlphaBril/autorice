@@ -55,18 +55,14 @@ tooltip {
 }
 
 #cpu,
-#custom-gpu,
 #memory,
-#custom-power,
 #clock,
 #workspaces,
 #window,
-#custom-updates,
 #network,
 #bluetooth,
 #pulseaudio,
-#custom-wallchange,
-#custom-mode,
+#battery,
 #tray {
     color: #cdd6f4;
     background: #11111b;
@@ -91,16 +87,6 @@ tooltip {
     padding-left: 4px;
     padding-right: 12px;
     margin-right: 6px;
-}
-
-/* gpu block */
-
-#custom-gpu {
-    border-radius: 10px;
-    margin-left: 6px;
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-left: 6px;
 }
 
 /* date time block */
@@ -129,15 +115,10 @@ tooltip {
 
 /* control center block */
 
-#custom-updates {
+#network {
     border-radius: 10px 0px 0px 10px;
     margin-left: 6px;
     padding-left: 12px;
-    padding-right: 4px;
-}
-
-#network {
-    padding-left: 4px;
     padding-right: 4px;
 }
 
@@ -178,7 +159,7 @@ tooltip {
     padding-right: 4px;
 }
 
-#custom-power {
+#battery {
     border-radius: 0px 10px 10px 0px;
     padding-left: 4px;
     padding-right: 12px;
